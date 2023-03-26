@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funds Transfer</title>
+</head>
+
+<body>
+    <h3>Funds Transfer</h3>
+
+    <div class="container">
+        <form data-th-action="@{'/transfer'}" method="post" data-th-object="${ft}">
+            <label>From Account:</label>
+            <select data-th-field="*{accFromId}">
+                <option data-th-each="account : ${accounts}" data-th-text="${account.name} + ' (' + ${account.accountId} + ')'" data-th-value="${account.accountId}" name="accFrom"></option>
+            </select>
+            <br><br>
+
+            <label>To Account:</label>
+            <select data-th-field="*{accToId}">
+                <option data-th-each="account : ${accounts}" data-th-text="${account.name} + ' (' + ${account.accountId} + ')'" data-th-value="${account.accountId}" name="accTo"></option>
+            </select>
+            <br><br>
+
+            <label>Amount:</label>
+            <input type="number" name="amount" data-th-field="*{amount}">
+            <br><br>
+
+            <label>Comments:</label>
+            <input type="text" style="height: 100px; width: 300px;" name="comments" data-th-field="*{comments}">
+            <br><br>
+
+            <button type="submit">Transfer</button>
+
+            <div data-th-if="${#fields.hasAnyErrors()}">
+                <ul>
+                    <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}"></li>
+                </ul>
+            </div>
+
+        </form>
+    </div> 
+</body>
+</html>
+
+
+
