@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotNull;
 
 public class FundsTransfer {
 
+    @NotNull(message = "Required")
     private String accFromId;
  
+    @NotNull(message = "Required")
     private String accToId;
 
     @NotNull(message = "Amount required")

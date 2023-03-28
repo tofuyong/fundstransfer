@@ -12,6 +12,7 @@
 
     <div class="container">
         <form data-th-action="@{'/transfer'}" method="post" data-th-object="${ft}">
+            
             <label>From Account:</label>
             <select data-th-field="*{accFromId}">
                 <option data-th-each="account : ${accounts}" data-th-text="${account.name} + ' (' + ${account.accountId} + ')'" data-th-value="${account.accountId}" name="accFrom"></option>

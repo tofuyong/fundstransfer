@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Transaction Successful</title>
 </head>
 <body>
-    successful
+    <div data-th-object="${transaction}">
+        <p>Your transfer of $<span data-th-text="*{amount}"></span> from <span data-th-text="*{accFromName}"></span> (<span data-th-text="*{accFromId}"></span>) to <span data-th-text="*{accToName}"></span> (<span data-th-text="*{accToId}"></span>) is successful.</p>
+
+        <p>Transaction id is <span data-th-text="*{transactionId}"></span></p>
+
+    </div>
 </body>
 </html>
